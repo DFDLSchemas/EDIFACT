@@ -17,13 +17,13 @@ UN/EDIFACT data streams adopt one of several syntax levels, the most common bein
 
 The following are included in this repository:
  
-        'EDIFACT-SupplyChain-D03B' 
+        EDIFACT-SupplyChain-D03B 
 
-        'EDIFACT-Common'
+        EDIFACT-Common
 
-'EDIFACT-SupplyChain-D03B' folder contains a pair of DFDL schemas that model a UN/EDIFACT Supply Chain interchange for release D.03B. Message types DESADV, INVOIC, ORDCHG, ORDERS, ORDRSP, RECADV and REMADV. Test data and infosets are included.
+Folder 'EDIFACT-SupplyChain-D03B' contains a pair of DFDL schemas that model a UN/EDIFACT Supply Chain interchange for release D.03B. Message types DESADV, INVOIC, ORDCHG, ORDERS, ORDRSP, RECADV and REMADV. Test data and infosets are included.
 
-'EDIFACT-Common' folder contains. A DFDL schema to define default values for DFDL properties, and a DFDL schema to model the Uxx service segments and messages for syntax version 4. Service message types AUTACK, CONTRL and KEYMAN.
+Folder 'EDIFACT-Common' contains a DFDL schema to define default values for DFDL properties, and a DFDL schema to model the Uxx service segments and messages for syntax version 4. Service message types AUTACK, CONTRL and KEYMAN.
 
 DFDL schemas for other UN/EDIFACT releases and message types are available from IBM, please contact smh@uk.ibm.com.
 

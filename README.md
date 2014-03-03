@@ -25,12 +25,6 @@ Folder 'EDIFACT-SupplyChain-D03B' contains a pair of DFDL schemas that model a U
 
 Folder 'EDIFACT-Common' contains a DFDL schema to define default values for DFDL properties, and a DFDL schema to model the Uxx service segments and messages for syntax version 4. Service message types AUTACK, CONTRL and KEYMAN.
 
-DFDL schemas for other UN/EDIFACT releases and message types are available from IBM, please contact smh@uk.ibm.com.
-
-The DFDL schemas are compatible with IBM DFDL 1.0 and 1.1 releases, as shipped in IBM WebSphere Message Broker 8.0.0.2 onwards and IBM Integration Bus 9.0.0.1 onwards, respectively.
-
-If the DFDL schemas are used within an eclipse IDE, it is recommended that each folder becomes a project (library) with the same name, with 'EDIFACT-&lt;Industry&gt;-&lt;Release&gt;' projects referencing 'EDIFACT-Common' project.
-
 To support UN/EDIFACT syntax version 3 instead of syntax version 4, edit IBM_EDI_FORMAT.xsd in the 'EDIFACT-Common' folder and change DFDL variable 'RepeatSep' to have default value '+' instead of '*'.
 
 To support ',' as the default decimal separator instead of '.', edit IBM_EDI_FORMAT.xsd in the 'EDIFACT-Common' folder and change DFDL variable 'DecimalSep' to have default value ',' instead of '.'.
@@ -38,6 +32,17 @@ To support ',' as the default decimal separator instead of '.', edit IBM_EDI_FOR
 The supplied DFDL schemas will parse UN/EDIFACT interchanges with or without new lines at the end of each segment, but will serialize interchanges without new lines.
 To serialize with new lines, edit EDIFACT-Service-Segments-4.1.xsd in the 'EDIFACT-Common' folder and change the DFDL expression used to set DFDL variable
 'SegmentTerm' to the commented-out value. 
+
+The DFDL schemas are compatible with IBM DFDL 1.0 and 1.1 releases, as shipped in IBM WebSphere Message Broker 8.0.0.2 onwards and IBM Integration Bus 9.0.0.1 onwards, respectively.
+
+----------------
+IBM WebSphere Message Broker and IBM Integration Bus
+
+It is recommended that each folder becomes a library project with the same name, with  'EDIFACT-&lt;Industry&gt;-&lt;Release&gt;' libraries referencing the 'EDIFACT-Common' library.
+
+When deploying the EDIFACT libraries to a broker, it is recommended to increase the Java heap size of the target execution group to at least 1GB, using the following command:
+
+    mqsichangeproperties <broker> -e <execgrp> -o ComIbmJVMManager -n jvmMaxHeapSize -v 1073741820
 
 ----------------
 The United Nations Rules for Electronic Data Interchange for Administration, Commerce and Transport (UN/EDIFACT) can be obtained 
@@ -47,4 +52,6 @@ http://www.unece.org/tradewelcome/areas-of-work/un-centre-for-trade-facilitation
 For any further reproduction of UN/CEFACT material please contact info.ece@unece.org. 
 
 Please observe the copyright notice within each schema.
+
+DFDL schemas for other UN/EDIFACT releases and message types are available from IBM, please contact smh@uk.ibm.com.
 

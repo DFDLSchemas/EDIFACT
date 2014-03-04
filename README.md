@@ -23,7 +23,7 @@ The following are included in this repository:
 
 Folder 'EDIFACT-SupplyChain-D03B' contains a pair of DFDL schemas that model a UN/EDIFACT Supply Chain interchange for release D.03B. Message types DESADV, INVOIC, ORDCHG, ORDERS, ORDRSP, RECADV and REMADV. Test data and infosets are included.
 
-Folder 'EDIFACT-Common' contains a DFDL schema to define default values for DFDL properties, and a DFDL schema to model the Uxx service segments and messages for syntax version 4. Service message types AUTACK, CONTRL and KEYMAN.
+Folder 'EDIFACT-Common' contains a DFDL schema to define default values for DFDL properties, and a DFDL schema to model the Uxx service segments and service messages for syntax version 4. Service message types AUTACK, CONTRL and KEYMAN.
 
 To support UN/EDIFACT syntax version 3 instead of syntax version 4, edit IBM_EDI_FORMAT.xsd in the 'EDIFACT-Common' folder and change DFDL variable 'RepeatSep' to have default value '+' instead of '*'.
 

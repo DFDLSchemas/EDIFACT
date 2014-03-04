@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?><Interchange xmlns="http://www.ibm.com/dfdl/edi/un/edifact/SupplyChain/D03B" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <UNB xmlns="">
+      <S001>
+         <E0001 xsi:type="xs:string">UNOA</E0001>
+         <E0002 xsi:type="xs:string">4</E0002>
+      </S001>
+      <S002>
+         <E0004 xsi:type="xs:string">APPLICATION</E0004>
+         <E0007 xsi:type="xs:string">1</E0007>
+      </S002>
+      <S003>
+         <E0010 xsi:type="xs:string">COMPANY</E0010>
+         <E0007 xsi:type="xs:string">1</E0007>
+      </S003>
+      <S004>
+         <E0017 xsi:type="xs:decimal">20051107</E0017>
+         <E0019 xsi:type="xs:decimal">1159</E0019>
+      </S004>
+      <E0020 xsi:type="xs:string">6002</E0020>
+   </UNB>
+   <Message>
+      <UNH xmlns="">
+         <E0062 xsi:type="xs:string">SSDD1</E0062>
+         <S009>
+            <E0065 xsi:type="xs:string">ORDERS</E0065>
+            <E0052 xsi:type="xs:string">D</E0052>
+            <E0054 xsi:type="xs:string">03B</E0054>
+            <E0051 xsi:type="xs:string">UN</E0051>
+            <E0057 xsi:type="xs:string">EAN008</E0057>
+         </S009>
+      </UNH>
+      <ORDERS>
+         <BGM xmlns="">
+            <C002>
+               <E1001 xsi:type="xs:string">220</E1001>
+            </C002>
+            <C106>
+               <E1004 xsi:type="xs:string">BKOD99</E1004>
+            </C106>
+            <E1225 xsi:type="xs:string">9</E1225>
+         </BGM>
+         <DTM xmlns="">
+            <C507>
+               <E2005 xsi:type="xs:string">137</E2005>
+               <E2380 xsi:type="xs:string">20051107</E2380>
+               <E2379 xsi:type="xs:string">102</E2379>
+            </C507>
+         </DTM>
+         <SegGrp-2 xmlns="">
+            <NAD>
+               <E3035 xsi:type="xs:string">BY</E3035>
+               <C082>
+                  <E3039 xsi:type="xs:string">5412345000176</E3039>
+                  <E3055 xsi:type="xs:string">9</E3055>
+               </C082>
+            </NAD>
+         </SegGrp-2>
+         <SegGrp-2 xmlns="">
+            <NAD>
+               <E3035 xsi:type="xs:string">SU</E3035>
+               <C082>
+                  <E3039 xsi:type="xs:string">4012345000094</E3039>
+                  <E3055 xsi:type="xs:string">9</E3055>
+               </C082>
+            </NAD>
+            <SegGrp-5>
+               <CTA>
+                  <E3139 xsi:type="xs:string">AA</E3139>
+               </CTA>
+               <COM>
+                  <C076>
+                     <E3148 xsi:type="xs:string">str11</E3148>
+                     <E3155 xsi:type="xs:string">str12</E3155>
+                  </C076>
+                  <C076>
+                     <E3148 xsi:type="xs:string">str21</E3148>
+                     <E3155 xsi:type="xs:string">str22</E3155>
+                  </C076>
+                  <C076>
+                     <E3148 xsi:type="xs:string">str31</E3148>
+                     <E3155 xsi:type="xs:string">str32</E3155>
+                  </C076>
+               </COM>
+            </SegGrp-5>
+         </SegGrp-2>
+         <SegGrp-28 xmlns="">
+            <LIN>
+               <E1082 xsi:type="xs:string">1</E1082>
+               <E1229 xsi:type="xs:string">1</E1229>
+               <C212>
+                  <E7140 xsi:type="xs:string">0764569104</E7140>
+                  <E7143 xsi:type="xs:string">IB</E7143>
+               </C212>
+            </LIN>
+            <QTY>
+               <C186>
+                  <E6063 xsi:type="xs:string">1</E6063>
+                  <E6060 xsi:type="xs:string">25</E6060>
+               </C186>
+            </QTY>
+            <FTX>
+               <E4451 xsi:type="xs:string">AFM</E4451>
+               <E4453 xsi:type="xs:string">1</E4453>
+               <C108>
+                  <E4440 xsi:type="xs:string">Lord of the Rings</E4440>
+               </C108>
+            </FTX>
+         </SegGrp-28>
+         <SegGrp-28 xmlns="">
+            <LIN>
+               <E1082 xsi:type="xs:string">2</E1082>
+               <E1229 xsi:type="xs:string">1</E1229>
+               <C212>
+                  <E7140 xsi:type="xs:string">0764569090</E7140>
+                  <E7143 xsi:type="xs:string">IB</E7143>
+               </C212>
+            </LIN>
+            <QTY>
+               <C186>
+                  <E6063 xsi:type="xs:string">1</E6063>
+                  <E6060 xsi:type="xs:string">25</E6060>
+               </C186>
+            </QTY>
+            <FTX>
+               <E4451 xsi:type="xs:string">AFM</E4451>
+               <E4453 xsi:type="xs:string">1</E4453>
+               <C108>
+                  <E4440 xsi:type="xs:string">The Hobbit</E4440>
+               </C108>
+            </FTX>
+         </SegGrp-28>
+         <SegGrp-28 xmlns="">
+            <LIN>
+               <E1082 xsi:type="xs:string">3</E1082>
+               <E1229 xsi:type="xs:string">1</E1229>
+               <C212>
+                  <E7140 xsi:type="xs:string">1861004656</E7140>
+                  <E7143 xsi:type="xs:string">IB</E7143>
+               </C212>
+            </LIN>
+            <QTY>
+               <C186>
+                  <E6063 xsi:type="xs:string">1</E6063>
+                  <E6060 xsi:type="xs:string">16</E6060>
+               </C186>
+            </QTY>
+            <FTX>
+               <E4451 xsi:type="xs:string">AFM</E4451>
+               <E4453 xsi:type="xs:string">1</E4453>
+               <C108>
+                  <E4440 xsi:type="xs:string">The Silmarillion</E4440>
+               </C108>
+            </FTX>
+         </SegGrp-28>
+         <SegGrp-28 xmlns="">
+            <LIN>
+               <E1082 xsi:type="xs:string">4</E1082>
+               <E1229 xsi:type="xs:string">1</E1229>
+               <C212>
+                  <E7140 xsi:type="xs:string">0596006756</E7140>
+                  <E7143 xsi:type="xs:string">IB</E7143>
+               </C212>
+            </LIN>
+            <QTY>
+               <C186>
+                  <E6063 xsi:type="xs:string">1</E6063>
+                  <E6060 xsi:type="xs:string">10</E6060>
+               </C186>
+            </QTY>
+            <FTX>
+               <E4451 xsi:type="xs:string">AFM</E4451>
+               <E4453 xsi:type="xs:string">1</E4453>
+               <C108>
+                  <E4440 xsi:type="xs:string">The Children of Hurin</E4440>
+               </C108>
+            </FTX>
+         </SegGrp-28>
+         <UNS xmlns="">
+            <E0081 xsi:type="xs:string">S</E0081>
+         </UNS>
+         <CNT xmlns="">
+            <C270>
+               <E6069 xsi:type="xs:string">2</E6069>
+               <E6066 xsi:type="xs:decimal">4</E6066>
+            </C270>
+         </CNT>
+      </ORDERS>
+      <UNT xmlns="">
+         <E0074 xsi:type="xs:decimal">22</E0074>
+         <E0062 xsi:type="xs:string">SSDD1</E0062>
+      </UNT>
+   </Message>
+   <UNZ xmlns="">
+      <E0036 xsi:type="xs:decimal">1</E0036>
+      <E0020 xsi:type="xs:string">6002</E0020>
+   </UNZ>
+</Interchange>

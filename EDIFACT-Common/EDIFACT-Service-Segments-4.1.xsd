@@ -17,7 +17,7 @@
     * © Copyright International Business Machines Corporation, 2014
 	*
 	***********************************************************************
-    * Version 1.0.0.0 	EDIFACT-Service-Segments-4.1.xsd
+    * Version 1.0.1.0 	EDIFACT-Service-Segments-4.1.xsd
     *
     * This DFDL schema provides a set of common EDI service elements, segments 
     * and messages of EDIFACT syntax version 4.1 
@@ -881,7 +881,7 @@
   </xsd:simpleType>
   
   <xsd:simpleType name="E0017-Date">
-    <xsd:restriction base="srv:numeric6-8">
+    <xsd:restriction base="srv:numeric6-8Custom1">
       
     </xsd:restriction>
   </xsd:simpleType>
@@ -3545,21 +3545,21 @@
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType name="alpha1">
+  <xsd:simpleType name="alpha1" dfdl:textPadKind="padChar">
     <xsd:restriction base="xsd:string">
       <xsd:minLength value="1"/>
       <xsd:maxLength value="1"/>
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType name="alpha2">
+  <xsd:simpleType name="alpha2" dfdl:textPadKind="padChar">
     <xsd:restriction base="xsd:string">
       <xsd:minLength value="2"/>
       <xsd:maxLength value="2"/>
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType name="alpha4">
+  <xsd:simpleType name="alpha4" dfdl:textPadKind="padChar">
     <xsd:restriction base="xsd:string">
       <xsd:minLength value="4"/>
       <xsd:maxLength value="4"/>
@@ -3572,55 +3572,55 @@
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType dfdl:textNumberPattern="#0.#" name="numeric1-10">
+  <xsd:simpleType dfdl:textNumberPattern="#.#" name="numeric1-10">
     <xsd:restriction base="xsd:decimal">
       <xsd:totalDigits value="10"/>
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType dfdl:textNumberPattern="#0.#" name="numeric1-18">
+  <xsd:simpleType dfdl:textNumberPattern="#.#" name="numeric1-18">
     <xsd:restriction base="xsd:decimal">
       <xsd:totalDigits value="18"/>
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType dfdl:textNumberPattern="#0.#" name="numeric1-2">
+  <xsd:simpleType dfdl:textNumberPattern="#.#" name="numeric1-2">
     <xsd:restriction base="xsd:decimal">
       <xsd:totalDigits value="2"/>
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType dfdl:textNumberPattern="#0.#" name="numeric1-3">
+  <xsd:simpleType dfdl:textNumberPattern="#.#" name="numeric1-3">
     <xsd:restriction base="xsd:decimal">
       <xsd:totalDigits value="3"/>
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType dfdl:textNumberPattern="#0.#" name="numeric1-4">
+  <xsd:simpleType dfdl:textNumberPattern="#.#" name="numeric1-4">
     <xsd:restriction base="xsd:decimal">
       <xsd:totalDigits value="4"/>
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType dfdl:textNumberPattern="#0.#" name="numeric1-6">
+  <xsd:simpleType dfdl:textNumberPattern="#.#" name="numeric1-6">
     <xsd:restriction base="xsd:decimal">
       <xsd:totalDigits value="6"/>
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType dfdl:textNumberPattern="#0.#" name="numeric1-8">
+  <xsd:simpleType dfdl:textNumberPattern="#.#" name="numeric1-8">
     <xsd:restriction base="xsd:decimal">
       <xsd:totalDigits value="8"/>
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType dfdl:textNumberPattern="#0.#" name="numeric4">
+  <xsd:simpleType dfdl:textNumberPattern="0000" name="numeric4">
     <xsd:restriction base="xsd:decimal">
       <xsd:totalDigits value="4"/>
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType dfdl:textNumberPattern="#0.#" name="numeric6-8">
+  <xsd:simpleType dfdl:textNumberPattern="##000000" name="numeric6-8Custom1">
     <xsd:restriction base="xsd:decimal">
       <xsd:totalDigits value="8"/>
     </xsd:restriction>

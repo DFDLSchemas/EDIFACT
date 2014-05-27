@@ -69,16 +69,16 @@
                </CTA>
                <COM>
                   <C076>
-                     <E3148 xsi:type="xs:string">str11</E3148>
-                     <E3155 xsi:type="xs:string">str12</E3155>
+                     <E3148 xsi:type="xs:string">s11</E3148>
+                     <E3155 xsi:type="xs:string">AA</E3155>
                   </C076>
                   <C076>
-                     <E3148 xsi:type="xs:string">str21</E3148>
-                     <E3155 xsi:type="xs:string">str22</E3155>
+                     <E3148 xsi:type="xs:string">s21</E3148>
+                     <E3155 xsi:type="xs:string">AA</E3155>
                   </C076>
                   <C076>
-                     <E3148 xsi:type="xs:string">str31</E3148>
-                     <E3155 xsi:type="xs:string">str32</E3155>
+                     <E3148 xsi:type="xs:string">s31</E3148>
+                     <E3155 xsi:type="xs:string">AA</E3155>
                   </C076>
                </COM>
             </SegGrp-5>

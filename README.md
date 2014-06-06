@@ -30,8 +30,7 @@ To support UN/EDIFACT syntax version 3 instead of syntax version 4, edit IBM_EDI
 To support ',' as the default decimal separator instead of '.', edit IBM_EDI_FORMAT.xsd in the 'EDIFACT-Common' folder and change DFDL variable 'DecimalSep' to have default value ',' instead of '.'.
 
 The supplied DFDL schemas will parse UN/EDIFACT interchanges with or without new lines at the end of each segment, but will serialize interchanges without new lines.
-To serialize with new lines, edit EDIFACT-Service-Segments-4.1.xsd in the 'EDIFACT-Common' folder and change the DFDL expression used to set DFDL variable
-'SegmentTerm' to the commented-out value. 
+To serialize with new lines, edit EDIFACT-Service-Segments-4.1.xsd in the 'EDIFACT-Common' folder and change the DFDL expression used to set DFDL variable 'SegmentTerm' to the commented-out value. 
 
 The DFDL schemas are compatible with IBM DFDL 1.0 and 1.1 releases, as shipped in IBM WebSphere Message Broker 8.0.0.2 onwards and IBM Integration Bus 9.0.0.1 onwards, respectively.
 

@@ -37,7 +37,11 @@ The DFDL schemas are compatible with IBM DFDL 1.0 and 1.1 releases, as shipped i
 ----------------
 IBM WebSphere Message Broker and IBM Integration Bus
 
-It is recommended that each folder becomes a library project with the same name, with  'EDIFACT-&lt;Industry&gt;-&lt;Release&gt;' libraries referencing the 'EDIFACT-Common' library.
+It is recommended that each folder becomes a library project with the same name as the folder. This is because the schemas in the  'EDIFACT-&lt;Industry&gt;-&lt;Release&gt;' folder reference the schemas in the 'EDIFACT-Common' folder using a relative  schemaLocation path (example below), and so that the 'EDIFACT-Common' schemas can be shared by multiple libraries.
+
+    <xsd:import namespace="http://www.ibm.com/dfdl/EDI/Format" schemaLocation="../EDIFACT-Common/IBM_EDI_Format.xsd"/>
+
+The EDIFACT libraries may then be referenced by integration flows in Applications.
 
 When deploying the EDIFACT libraries to a broker, it is recommended to increase the Java heap size of the target execution group to at least 1GB, using the following command:
 

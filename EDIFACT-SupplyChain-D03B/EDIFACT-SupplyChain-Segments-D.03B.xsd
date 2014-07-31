@@ -17,13 +17,14 @@
     * © Copyright International Business Machines Corporation, 2014
 	*
 	***********************************************************************
-	* Version 1.0.1.0 	EDIFACT-SupplyChain-GitHub-Segments-D.03B.xsd
+	* Version 1.0.1.0 	EDIFACT-SupplyChain-Segments-D.03B.xsd
 	*
-	* This DFDL schema provides a set of EDI elements and segments for the SupplyChain-GitHub industry 
-	* of the standard EDIFACT version D.03B for use with DFDL processors.
+	* This DFDL schema provides a set of EDI elements and segments for a subset 
+        * of the SupplyChain industry of the standard EDIFACT version D.03B for use 
+        * with DFDL processors.
 	*
 	* Example use: 
-	*      <xsd:include schemaLocation="EDIFACT-SupplyChain-GitHub-Segments-D.03B.xsd"/>
+	*      <xsd:include schemaLocation="EDIFACT-SupplyChain-Segments-D.03B.xsd"/>
 	*********************************************************************** -->
 	
 <xsd:schema xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"

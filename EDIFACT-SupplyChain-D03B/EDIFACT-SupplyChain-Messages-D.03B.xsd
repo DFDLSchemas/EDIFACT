@@ -17,10 +17,10 @@
     * © Copyright International Business Machines Corporation, 2014
 	*
 	***********************************************************************
-	* Version 1.0.1.0 	EDIFACT-SupplyChain-GitHub-Messages-D.03B.xsd
+	* Version 1.0.1.0 	EDIFACT-SupplyChain-Messages-D.03B.xsd
 	*
-	* This DFDL schema provides a set of EDI messages for the SupplyChain-GitHub industry 
-	* of the standard EDIFACT version D.03B for use with DFDL processors.
+	* This DFDL schema provides a set of EDI messages for a subset of the 
+        * SupplyChain industry of the standard EDIFACT version D.03B for use with DFDL processors.
 	*
 	*********************************************************************** -->
 	
@@ -37,7 +37,7 @@
   
   <xsd:import namespace="http://www.ibm.com/dfdl/EDI/Format" schemaLocation="../EDIFACT-Common/IBM_EDI_Format.xsd"/>
   <xsd:import namespace="http://www.ibm.com/dfdl/edi/un/service/4.1" schemaLocation="../EDIFACT-Common/EDIFACT-Service-Segments-4.1.xsd"/>
-  <xsd:include schemaLocation="EDIFACT-SupplyChain-GitHub-Segments-D.03B.xsd"/>
+  <xsd:include schemaLocation="EDIFACT-SupplyChain-Segments-D.03B.xsd"/>
 
   
   <xsd:annotation>
@@ -49,7 +49,7 @@
   <xsd:element ibmSchExtn:docRoot="true" name="Interchange">
     <xsd:annotation>
       <xsd:documentation>
-        EDI messages for the industry SupplyChain-GitHub
+        EDI messages for the industry SupplyChain
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexType>

@@ -32,6 +32,8 @@ To support ',' as the default decimal separator instead of '.', edit IBM_EDI_FOR
 The supplied DFDL schemas will parse UN/EDIFACT interchanges with or without new lines at the end of each segment, but will serialize interchanges without new lines.
 To serialize with new lines, edit EDIFACT-Service-Segments-4.1.xsd in the 'EDIFACT-Common' folder and change the DFDL expression used to set DFDL variable 'SegmentTerm' to the commented-out value. 
 
+The DFDL schemas are structured so that if an error is encountered while parsing an interchange, the parser will create a BadMessage element in the DFDL infoset, and skip to the next message. It is therefore important that the infoset is checked after a successful parse, to see if any BadMessage elements exist. 
+
 The DFDL schemas are compatible with IBM DFDL 1.0 and 1.1 releases, as shipped in IBM WebSphere Message Broker 8.0.0.2 onwards and IBM Integration Bus 9.0.0.1 onwards, respectively.
 
 ----------------

@@ -17,7 +17,7 @@
     * © Copyright International Business Machines Corporation, 2014
 	*
 	***********************************************************************
-	* Version 1.0.1.0 	IBM_EDI_Format.xsd
+	* Version 1.1.2.0 	IBM_EDI_Format.xsd
 	*
 	* This DFDL schema provides a set of DFDL property values and other DFDL 
 	* constructs to assist in the creation of DFDL schemas that model EDI messages, 
@@ -49,7 +49,7 @@
        -->		
 
 		<!-- Variables used to store delimiter values from the UNA. -->
-		<dfdl:defineVariable defaultValue="'%WSP*;" name="SegmentTerm" type="xsd:string"/> 
+		<dfdl:defineVariable defaultValue="'%WSP*; %NL;%WSP*;" name="SegmentTerm" type="xsd:string"/> 
 		<dfdl:defineVariable defaultValue="+" name="FieldSep" type="xsd:string"/> 
 		<dfdl:defineVariable defaultValue=":" name="CompositeSep" type="xsd:string"/> 
 		<dfdl:defineVariable defaultValue="?" name="EscapeChar" type="xsd:string"/> 

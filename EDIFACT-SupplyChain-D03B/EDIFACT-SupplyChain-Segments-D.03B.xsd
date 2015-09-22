@@ -17,14 +17,13 @@
     * © Copyright International Business Machines Corporation, 2014
 	*
 	***********************************************************************
-	* Version 1.0.1.0 	EDIFACT-SupplyChain-Segments-D.03B.xsd
+	* Version 1.1.2.0 	EDIFACT-SupplyChain-GitHub-Segments-D.03B.xsd
 	*
-	* This DFDL schema provides a set of EDI elements and segments for a subset 
-        * of the SupplyChain industry of the standard EDIFACT version D.03B for use 
-        * with DFDL processors.
+	* This DFDL schema provides a set of EDI elements and segments for the SupplyChain-GitHub industry 
+	* of the standard EDIFACT version D.03B for use with DFDL processors.
 	*
 	* Example use: 
-	*      <xsd:include schemaLocation="EDIFACT-SupplyChain-Segments-D.03B.xsd"/>
+	*      <xsd:include schemaLocation="EDIFACT-SupplyChain-GitHub-Segments-D.03B.xsd"/>
 	*********************************************************************** -->
 	
 <xsd:schema xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
@@ -70,7 +69,7 @@
       <xsd:element  minOccurs="0" name="E3239" type="D03B:E3239-CountryOfOriginNameCode"/>
       <xsd:element  minOccurs="0" name="E9213" type="D03B:E9213-DutyRegimeTypeCode"/>
       <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentPartRepeatSequenceFormat">
-        <xsd:element  minOccurs="0" maxOccurs="5" name="E4183" type="D03B:E4183-SpecialConditionCode"/>
+        <xsd:element  minOccurs="0" maxOccurs="5" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E4183" type="D03B:E4183-SpecialConditionCode"/>
       </xsd:sequence>
   
     </xsd:sequence>
@@ -675,14 +674,14 @@
   
   <xsd:complexType name="C058-NameAndAddress">
     <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
-      <xsd:element  maxOccurs="5" name="E3124" type="D03B:E3124-NameAndAddressDescription"/>
+      <xsd:element  maxOccurs="5" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E3124" type="D03B:E3124-NameAndAddressDescription"/>
   
     </xsd:sequence>
   </xsd:complexType>
   
   <xsd:complexType name="C059-Street">
     <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
-      <xsd:element  maxOccurs="4" name="E3042" type="D03B:E3042-StreetAndNumberOrPostOfficeBoxIdentifier"/>
+      <xsd:element  maxOccurs="4" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E3042" type="D03B:E3042-StreetAndNumberOrPostOfficeBoxIdentifier"/>
   
     </xsd:sequence>
   </xsd:complexType>
@@ -698,7 +697,7 @@
   <xsd:complexType name="C078-AccountHolderIdentification">
     <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
       <xsd:element  minOccurs="0" name="E3194" type="D03B:E3194-AccountHolderIdentifier"/>
-      <xsd:element  minOccurs="0" maxOccurs="2" name="E3192" type="D03B:E3192-AccountHolderName"/>
+      <xsd:element  minOccurs="0" maxOccurs="2" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E3192" type="D03B:E3192-AccountHolderName"/>
       <xsd:element  minOccurs="0" name="E6345" type="D03B:E6345-CurrencyIdentificationCode"/>
   
     </xsd:sequence>
@@ -706,7 +705,7 @@
   
   <xsd:complexType name="C080-PartyName">
     <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
-      <xsd:element  maxOccurs="5" name="E3036" type="D03B:E3036-PartyName"/>
+      <xsd:element  maxOccurs="5" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E3036" type="D03B:E3036-PartyName"/>
       <xsd:element  minOccurs="0" name="E3045" type="D03B:E3045-PartyNameFormatCode"/>
   
     </xsd:sequence>
@@ -740,7 +739,7 @@
       <xsd:element  minOccurs="0" name="E4053" type="D03B:E4053-DeliveryOrTransportTermsDescriptionCode"/>
       <xsd:element  minOccurs="0" name="E1131" type="D03B:E1131-CodeListIdentificationCode"/>
       <xsd:element  minOccurs="0" name="E3055" type="D03B:E3055-CodeListResponsibleAgencyCode"/>
-      <xsd:element  minOccurs="0" maxOccurs="2" name="E4052" type="D03B:E4052-DeliveryOrTransportTermsDescription"/>
+      <xsd:element  minOccurs="0" maxOccurs="2" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E4052" type="D03B:E4052-DeliveryOrTransportTermsDescription"/>
   
     </xsd:sequence>
   </xsd:complexType>
@@ -765,7 +764,7 @@
   
   <xsd:complexType name="C108-TextLiteral">
     <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
-      <xsd:element  maxOccurs="5" name="E4440" type="D03B:E4440-FreeText"/>
+      <xsd:element  maxOccurs="5" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E4440" type="D03B:E4440-FreeText"/>
   
     </xsd:sequence>
   </xsd:complexType>
@@ -838,14 +837,14 @@
   
   <xsd:complexType name="C208-IdentityNumberRange">
     <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
-      <xsd:element  maxOccurs="2" name="E7402" type="D03B:E7402-ObjectIdentifier"/>
+      <xsd:element  maxOccurs="2" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E7402" type="D03B:E7402-ObjectIdentifier"/>
   
     </xsd:sequence>
   </xsd:complexType>
   
   <xsd:complexType name="C210-MarksLabels">
     <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
-      <xsd:element  maxOccurs="10" name="E7102" type="D03B:E7102-ShippingMarksDescription"/>
+      <xsd:element  maxOccurs="10" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E7102" type="D03B:E7102-ShippingMarksDescription"/>
   
     </xsd:sequence>
   </xsd:complexType>
@@ -865,7 +864,7 @@
       <xsd:element  minOccurs="0" name="E7161" type="D03B:E7161-SpecialServiceDescriptionCode"/>
       <xsd:element  minOccurs="0" name="E1131" type="D03B:E1131-CodeListIdentificationCode"/>
       <xsd:element  minOccurs="0" name="E3055" type="D03B:E3055-CodeListResponsibleAgencyCode"/>
-      <xsd:element  minOccurs="0" maxOccurs="2" name="E7160" type="D03B:E7160-SpecialServiceDescription"/>
+      <xsd:element  minOccurs="0" maxOccurs="2" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E7160" type="D03B:E7160-SpecialServiceDescription"/>
   
     </xsd:sequence>
   </xsd:complexType>
@@ -965,7 +964,7 @@
   
   <xsd:complexType name="C236-DangerousGoodsLabel">
     <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
-      <xsd:element  minOccurs="0" maxOccurs="3" name="E8246" type="D03B:E8246-DangerousGoodsMarkingIdentifier"/>
+      <xsd:element  minOccurs="0" maxOccurs="3" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E8246" type="D03B:E8246-DangerousGoodsMarkingIdentifier"/>
   
     </xsd:sequence>
   </xsd:complexType>
@@ -985,7 +984,7 @@
       <xsd:element  name="E7037" type="D03B:E7037-CharacteristicDescriptionCode"/>
       <xsd:element  minOccurs="0" name="E1131" type="D03B:E1131-CodeListIdentificationCode"/>
       <xsd:element  minOccurs="0" name="E3055" type="D03B:E3055-CodeListResponsibleAgencyCode"/>
-      <xsd:element  minOccurs="0" maxOccurs="2" name="E7036" type="D03B:E7036-CharacteristicDescription"/>
+      <xsd:element  minOccurs="0" maxOccurs="2" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E7036" type="D03B:E7036-CharacteristicDescription"/>
   
     </xsd:sequence>
   </xsd:complexType>
@@ -1036,7 +1035,7 @@
       <xsd:element  minOccurs="0" name="E7009" type="D03B:E7009-ItemDescriptionCode"/>
       <xsd:element  minOccurs="0" name="E1131" type="D03B:E1131-CodeListIdentificationCode"/>
       <xsd:element  minOccurs="0" name="E3055" type="D03B:E3055-CodeListResponsibleAgencyCode"/>
-      <xsd:element  minOccurs="0" maxOccurs="2" name="E7008" type="D03B:E7008-ItemDescription"/>
+      <xsd:element  minOccurs="0" maxOccurs="2" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E7008" type="D03B:E7008-ItemDescription"/>
       <xsd:element  minOccurs="0" name="E3453" type="D03B:E3453-LanguageNameCode"/>
   
     </xsd:sequence>
@@ -1416,7 +1415,7 @@
       <xsd:element  minOccurs="0" name="E7111" type="D03B:E7111-CharacteristicValueDescriptionCode"/>
       <xsd:element  minOccurs="0" name="E1131" type="D03B:E1131-CodeListIdentificationCode"/>
       <xsd:element  minOccurs="0" name="E3055" type="D03B:E3055-CodeListResponsibleAgencyCode"/>
-      <xsd:element  minOccurs="0" maxOccurs="2" name="E7110" type="D03B:E7110-CharacteristicValueDescription"/>
+      <xsd:element  minOccurs="0" maxOccurs="2" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E7110" type="D03B:E7110-CharacteristicValueDescription"/>
   
     </xsd:sequence>
   </xsd:complexType>
@@ -21605,114 +21604,133 @@
   
   <xsd:simpleType name="alpha0-10">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="10"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-11">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="11"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-12">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="12"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-15">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="15"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-17">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="17"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-18">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="18"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-20">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="20"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-25">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="25"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-256">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="256"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-26">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="26"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-3">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="3"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-35">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="35"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-4">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="4"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-512">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="512"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-6">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="6"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-7">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="7"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-70">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="70"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-8">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="8"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-9">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="9"/>
     </xsd:restriction>
   </xsd:simpleType>

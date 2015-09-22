@@ -17,7 +17,7 @@
     * © Copyright International Business Machines Corporation, 2014
 	*
 	***********************************************************************
-    * Version 1.0.1.0 	EDIFACT-Service-Segments-4.1.xsd
+    * Version 1.1.2.0 	EDIFACT-Service-Segments-4.1.xsd
     *
     * This DFDL schema provides a set of common EDI service elements, segments 
     * and messages of EDIFACT syntax version 4.1 
@@ -115,10 +115,10 @@
       <xsd:element name="SegmentTerminator" dfdl:length="1" dfdl:lengthKind="explicit" type="xsd:string" default="'" dfdl:escapeSchemeRef="" dfdl:textTrimKind="none">
 	    <xsd:annotation>
     	  <xsd:appinfo source="http://www.ogf.org/dfdl/">
-      		<!-- This allows newlines on input but does not output them -->
-      		<dfdl:setVariable ref="ibmEdiFmt:SegmentTerm" value="{fn:concat(., '%WSP*;')}"/>
+      		<!-- This allows newlines on input and tolerates missing segment terminator, but does not output new lines -->
+      		<dfdl:setVariable ref="ibmEdiFmt:SegmentTerm" value="{fn:concat(., '%WSP*;', ' %NL;%WSP*;')}"/>
       		<!-- Use this function if you also want newlines to appear on output -->
-      		<!-- {fn:concat(., '%NL;', ' ', .)} -->
+      		<!-- {fn:concat(., '%NL;', ' ', ., ' %NL;%WSP*;')} -->
     	  </xsd:appinfo>
   		</xsd:annotation>
       </xsd:element>
@@ -133,19 +133,26 @@
       <xsd:element  maxOccurs="99" name="SegGrp-1">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USH"  name="USH" type="srv:USH-SecurityHeader">
-            </xsd:element>
-            <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USA"  minOccurs="0" maxOccurs="3" name="USA" type="srv:USA-SecurityAlgorithm">
-            </xsd:element>
+            <xsd:sequence dfdl:initiatedContent="yes">
+              <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USH"  name="USH" type="srv:USH-SecurityHeader">
+              </xsd:element>
+            
+              <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USA"  minOccurs="0" maxOccurs="3" name="USA" type="srv:USA-SecurityAlgorithm">
+              </xsd:element>
+            </xsd:sequence>
             <xsd:element  minOccurs="0" maxOccurs="2" name="SegGrp-2">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USC"  name="USC" type="srv:USC-Certificate">
-                  </xsd:element>
-                  <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USA"  minOccurs="0" maxOccurs="3" name="USA" type="srv:USA-SecurityAlgorithm">
-                  </xsd:element>
-                  <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USR"  minOccurs="0" name="USR" type="srv:USR-SecurityResult">
-                  </xsd:element>
+                  <xsd:sequence dfdl:initiatedContent="yes">
+                    <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USC"  name="USC" type="srv:USC-Certificate">
+                    </xsd:element>
+                  
+                    <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USA"  minOccurs="0" maxOccurs="3" name="USA" type="srv:USA-SecurityAlgorithm">
+                    </xsd:element>
+                  
+                    <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USR"  minOccurs="0" name="USR" type="srv:USR-SecurityResult">
+                    </xsd:element>
+                  </xsd:sequence>
             
                 </xsd:sequence>
               </xsd:complexType>
@@ -154,15 +161,20 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
-      <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USB"  name="USB" type="srv:USB-SecuredDataIdentification">
-      </xsd:element>
+      <xsd:sequence dfdl:initiatedContent="yes">
+        <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USB"  name="USB" type="srv:USB-SecuredDataIdentification">
+        </xsd:element>
+      </xsd:sequence>
       <xsd:element  maxOccurs="9999" name="SegGrp-3">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USX"  name="USX" type="srv:USX-SecurityReferences">
-            </xsd:element>
-            <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USY"  maxOccurs="9" name="USY" type="srv:USY-SecurityOnReferences">
-            </xsd:element>
+            <xsd:sequence dfdl:initiatedContent="yes">
+              <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USX"  name="USX" type="srv:USX-SecurityReferences">
+              </xsd:element>
+            
+              <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USY"  maxOccurs="9" name="USY" type="srv:USY-SecurityOnReferences">
+              </xsd:element>
+            </xsd:sequence>
       
           </xsd:sequence>
         </xsd:complexType>
@@ -170,10 +182,13 @@
       <xsd:element  maxOccurs="99" name="SegGrp-4">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UST"  name="UST" type="srv:UST-SecurityTrailer">
-            </xsd:element>
-            <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USR"  minOccurs="0" name="USR" type="srv:USR-SecurityResult">
-            </xsd:element>
+            <xsd:sequence dfdl:initiatedContent="yes">
+              <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UST"  name="UST" type="srv:UST-SecurityTrailer">
+              </xsd:element>
+            
+              <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USR"  minOccurs="0" name="USR" type="srv:USR-SecurityResult">
+              </xsd:element>
+            </xsd:sequence>
       
           </xsd:sequence>
         </xsd:complexType>
@@ -186,20 +201,27 @@
   </xsd:element>
   <xsd:complexType name="CONTRL">
     <xsd:sequence>
-      <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCI"  name="UCI" type="srv:UCI-InterchangeResponse">
-      </xsd:element>
+      <xsd:sequence dfdl:initiatedContent="yes">
+        <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCI"  name="UCI" type="srv:UCI-InterchangeResponse">
+        </xsd:element>
+      </xsd:sequence>
       <xsd:element  minOccurs="0" maxOccurs="999999" name="SegGrp-1">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCM"  name="UCM" type="srv:UCM-MessagePackageResponse">
-            </xsd:element>
+            <xsd:sequence dfdl:initiatedContent="yes">
+              <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCM"  name="UCM" type="srv:UCM-MessagePackageResponse">
+              </xsd:element>
+            </xsd:sequence>
             <xsd:element  minOccurs="0" maxOccurs="999" name="SegGrp-2">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCS"  name="UCS" type="srv:UCS-SegmentErrorIndication">
-                  </xsd:element>
-                  <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCD"  minOccurs="0" maxOccurs="99" name="UCD" type="srv:UCD-DataElementErrorIndication">
-                  </xsd:element>
+                  <xsd:sequence dfdl:initiatedContent="yes">
+                    <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCS"  name="UCS" type="srv:UCS-SegmentErrorIndication">
+                    </xsd:element>
+                  
+                    <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCD"  minOccurs="0" maxOccurs="99" name="UCD" type="srv:UCD-DataElementErrorIndication">
+                    </xsd:element>
+                  </xsd:sequence>
             
                 </xsd:sequence>
               </xsd:complexType>
@@ -211,20 +233,27 @@
       <xsd:element  minOccurs="0" maxOccurs="999999" name="SegGrp-3">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCF"  name="UCF" type="srv:UCF-GroupResponse">
-            </xsd:element>
+            <xsd:sequence dfdl:initiatedContent="yes">
+              <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCF"  name="UCF" type="srv:UCF-GroupResponse">
+              </xsd:element>
+            </xsd:sequence>
             <xsd:element  minOccurs="0" maxOccurs="999999" name="SegGrp-4">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCM"  name="UCM" type="srv:UCM-MessagePackageResponse">
-                  </xsd:element>
+                  <xsd:sequence dfdl:initiatedContent="yes">
+                    <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCM"  name="UCM" type="srv:UCM-MessagePackageResponse">
+                    </xsd:element>
+                  </xsd:sequence>
                   <xsd:element  minOccurs="0" maxOccurs="999" name="SegGrp-5">
                     <xsd:complexType>
                       <xsd:sequence>
-                        <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCS"  name="UCS" type="srv:UCS-SegmentErrorIndication">
-                        </xsd:element>
-                        <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCD"  minOccurs="0" maxOccurs="99" name="UCD" type="srv:UCD-DataElementErrorIndication">
-                        </xsd:element>
+                        <xsd:sequence dfdl:initiatedContent="yes">
+                          <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCS"  name="UCS" type="srv:UCS-SegmentErrorIndication">
+                          </xsd:element>
+                        
+                          <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UCD"  minOccurs="0" maxOccurs="99" name="UCD" type="srv:UCD-DataElementErrorIndication">
+                          </xsd:element>
+                        </xsd:sequence>
                   
                       </xsd:sequence>
                     </xsd:complexType>
@@ -248,26 +277,36 @@
       <xsd:element  minOccurs="0" maxOccurs="999" name="SegGrp-1">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USE"  name="USE" type="srv:USE-SecurityMessageRelation">
-            </xsd:element>
-            <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USX"  minOccurs="0" name="USX" type="srv:USX-SecurityReferences">
-            </xsd:element>
+            <xsd:sequence dfdl:initiatedContent="yes">
+              <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USE"  name="USE" type="srv:USE-SecurityMessageRelation">
+              </xsd:element>
+            
+              <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USX"  minOccurs="0" name="USX" type="srv:USX-SecurityReferences">
+              </xsd:element>
+            </xsd:sequence>
             <xsd:element  maxOccurs="9" name="SegGrp-2">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USF"  name="USF" type="srv:USF-KeyManagementFunction">
-                  </xsd:element>
-                  <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USA"  minOccurs="0" name="USA" type="srv:USA-SecurityAlgorithm">
-                  </xsd:element>
+                  <xsd:sequence dfdl:initiatedContent="yes">
+                    <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USF"  name="USF" type="srv:USF-KeyManagementFunction">
+                    </xsd:element>
+                  
+                    <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USA"  minOccurs="0" name="USA" type="srv:USA-SecurityAlgorithm">
+                    </xsd:element>
+                  </xsd:sequence>
                   <xsd:element  minOccurs="0" name="SegGrp-3">
                     <xsd:complexType>
                       <xsd:sequence>
-                        <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USC"  name="USC" type="srv:USC-Certificate">
-                        </xsd:element>
-                        <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USA"  minOccurs="0" maxOccurs="3" name="USA" type="srv:USA-SecurityAlgorithm">
-                        </xsd:element>
-                        <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USR"  minOccurs="0" name="USR" type="srv:USR-SecurityResult">
-                        </xsd:element>
+                        <xsd:sequence dfdl:initiatedContent="yes">
+                          <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USC"  name="USC" type="srv:USC-Certificate">
+                          </xsd:element>
+                        
+                          <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USA"  minOccurs="0" maxOccurs="3" name="USA" type="srv:USA-SecurityAlgorithm">
+                          </xsd:element>
+                        
+                          <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USR"  minOccurs="0" name="USR" type="srv:USR-SecurityResult">
+                          </xsd:element>
+                        </xsd:sequence>
                   
                       </xsd:sequence>
                     </xsd:complexType>
@@ -283,17 +322,23 @@
       <xsd:element  minOccurs="0" maxOccurs="99" name="SegGrp-4">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USL"  name="USL" type="srv:USL-SecurityListStatus">
-            </xsd:element>
+            <xsd:sequence dfdl:initiatedContent="yes">
+              <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USL"  name="USL" type="srv:USL-SecurityListStatus">
+              </xsd:element>
+            </xsd:sequence>
             <xsd:element  maxOccurs="9999" name="SegGrp-5">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USC"  name="USC" type="srv:USC-Certificate">
-                  </xsd:element>
-                  <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USA"  minOccurs="0" maxOccurs="3" name="USA" type="srv:USA-SecurityAlgorithm">
-                  </xsd:element>
-                  <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USR"  minOccurs="0" name="USR" type="srv:USR-SecurityResult">
-                  </xsd:element>
+                  <xsd:sequence dfdl:initiatedContent="yes">
+                    <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USC"  name="USC" type="srv:USC-Certificate">
+                    </xsd:element>
+                  
+                    <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USA"  minOccurs="0" maxOccurs="3" name="USA" type="srv:USA-SecurityAlgorithm">
+                    </xsd:element>
+                  
+                    <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="USR"  minOccurs="0" name="USR" type="srv:USR-SecurityResult">
+                    </xsd:element>
+                  </xsd:sequence>
             
                 </xsd:sequence>
               </xsd:complexType>
@@ -881,7 +926,7 @@
   </xsd:simpleType>
   
   <xsd:simpleType name="E0017-Date">
-    <xsd:restriction base="srv:numeric6-8Custom1">
+    <xsd:restriction base="srv:numeric6-8_custom1">
       
     </xsd:restriction>
   </xsd:simpleType>
@@ -1145,6 +1190,12 @@
       <xsd:enumeration value="10B">
       </xsd:enumeration>
       <xsd:enumeration value="11A">
+      </xsd:enumeration>
+      <xsd:enumeration value="11B">
+      </xsd:enumeration>
+      <xsd:enumeration value="12A">
+      </xsd:enumeration>
+      <xsd:enumeration value="12B">
       </xsd:enumeration>
       <xsd:enumeration value="93A">
       </xsd:enumeration>
@@ -3425,7 +3476,7 @@
       <xsd:element  minOccurs="0" name="E0511" type="srv:E0511-SecurityPartyIdentification"/>
       <xsd:element  minOccurs="0" name="E0513" type="srv:E0513-SecurityPartyCodeListQualifier"/>
       <xsd:element  minOccurs="0" name="E0515" type="srv:E0515-SecurityPartyCodeListResponsibleAgencyCoded"/>
-      <xsd:element  minOccurs="0" maxOccurs="3" name="E0586" type="srv:E0586-SecurityPartyName"/>
+      <xsd:element  minOccurs="0" maxOccurs="3" dfdl:nilKind="literalValue" dfdl:useNilForDefault="no" nillable="true" dfdl:nilValue="%ES;" name="E0586" type="srv:E0586-SecurityPartyName"/>
   
     </xsd:sequence>
   </xsd:complexType>
@@ -3487,60 +3538,70 @@
   
   <xsd:simpleType name="alpha0-1024">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="1024"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-14">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="14"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-15">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="15"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-256">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="256"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-3">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="3"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-35">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="35"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-4">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="4"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-512">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="512"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-6">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="6"/>
     </xsd:restriction>
   </xsd:simpleType>
   
   <xsd:simpleType name="alpha0-70">
     <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
       <xsd:maxLength value="70"/>
     </xsd:restriction>
   </xsd:simpleType>
@@ -3620,7 +3681,7 @@
     </xsd:restriction>
   </xsd:simpleType>
   
-  <xsd:simpleType dfdl:textNumberPattern="##000000" name="numeric6-8Custom1">
+  <xsd:simpleType dfdl:textNumberPattern="##000000" name="numeric6-8_custom1">
     <xsd:restriction base="xsd:decimal">
       <xsd:totalDigits value="8"/>
     </xsd:restriction>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tdml:testSuite suiteName="EDIFACT" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" 
+  xmlns:daf="urn:ogf:dfdl:2013:imp:daffodil.apache.org:2018:ext"
+  xmlns:tdml="http://www.ibm.com/xmlns/dfdl/testData"
+  defaultConfig="cfg"
+  defaultRoundTrip="none">
+  
+  <tdml:defineConfig name="cfg">
+    <daf:tunables>
+      <daf:suppressSchemaDefinitionWarnings>
+        encodingErrorPolicyError
+        emptyElementPolicyError
+      </daf:suppressSchemaDefinitionWarnings>    
+      <daf:emptyElementPolicy>emptySuppressed</daf:emptyElementPolicy>
+    </daf:tunables>
+  </tdml:defineConfig>
+
+  <tdml:parserTestCase name="edifact1" 
+    root="Interchange" 
+    model="EDIFACT-SupplyChain-D03B/EDIFACT-SupplyChain-Messages-D.03B.xsd" 
+    description="EDIFACT test"
+    roundTrip="none">
+    <tdml:document>
+      <tdml:documentPart type="file">EDIFACT-SupplyChain-D03B/TestData/INVOIC_D.03B_Interchange_with_UNA.txt</tdml:documentPart>
+    </tdml:document>
+    <tdml:infoset>
+      <tdml:dfdlInfoset type="file">EDIFACT-SupplyChain-D03B/TestInfosets/INVOIC_D.03B_Interchange_with_UNA.xml</tdml:dfdlInfoset>
+    </tdml:infoset>
+  </tdml:parserTestCase>
+  
+  <tdml:parserTestCase name="edifact2" 
+    root="Interchange" 
+    model="EDIFACT-SupplyChain-D03B/EDIFACT-SupplyChain-Messages-D.03B.xsd" 
+    description="EDIFACT test">
+    <tdml:document>
+      <tdml:documentPart type="file">EDIFACT-SupplyChain-D03B/TestData/ORDERS_D.03B_Interchange.txt</tdml:documentPart>
+    </tdml:document>
+    <tdml:infoset>
+      <tdml:dfdlInfoset type="file">EDIFACT-SupplyChain-D03B/TestInfosets/ORDERS_D.03B_Interchange.xml</tdml:dfdlInfoset>
+    </tdml:infoset>
+  </tdml:parserTestCase>
+  
+</tdml:testSuite>
+      

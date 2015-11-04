@@ -76,14 +76,14 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="CompositeSeparator" dfdl:length="1" dfdl:lengthKind="explicit" type="xsd:string" default=":" dfdl:escapeSchemeRef="" dfdl:textTrimKind="none">
+      <xsd:element name="CompositeSeparator" dfdl:length="1" dfdl:lengthKind="explicit" type="xsd:string" dfdl:escapeSchemeRef="" dfdl:textTrimKind="none"> <!-- removed default=":" no empty is possible for explicit length string -->
 	    <xsd:annotation>
     	  <xsd:appinfo source="http://www.ogf.org/dfdl/">
       		<dfdl:setVariable ref="ibmEdiFmt:CompositeSep" value="{if (. eq ' ') then '%SP;' else .}"/>
     	  </xsd:appinfo>
   		</xsd:annotation>
       </xsd:element>
-      <xsd:element name="FieldSeparator" dfdl:length="1" dfdl:lengthKind="explicit" type="xsd:string" default="+" dfdl:escapeSchemeRef="" dfdl:textTrimKind="none">
+      <xsd:element name="FieldSeparator" dfdl:length="1" dfdl:lengthKind="explicit" type="xsd:string" dfdl:escapeSchemeRef="" dfdl:textTrimKind="none"> <!-- removed default="+" no empty is possible -->
 	    <xsd:annotation>
     	  <xsd:appinfo source="http://www.ogf.org/dfdl/">
       		<dfdl:setVariable ref="ibmEdiFmt:FieldSep" value="{if (. eq ' ') then '%SP;' else .}"/>

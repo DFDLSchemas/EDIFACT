@@ -42,7 +42,8 @@
       		Default field separator is "+".
       		Default composite separator is ":".
       		Default repeat separator is "*".  (Change to "+" if syntax version 3 and not using '*').
-      		Default decimal separator is ".".  (Change to "," if needed.) 
+          Default decimal separator is ".".  (Change to "," if needed.) 
+          Default grouping separator is ",".  (Change to "." if needed.) 
       		Default escape character and escape escape character is "?".
       		UNA segment if present overrides above defaults. 
       		Grouping separators are never used.
@@ -54,12 +55,13 @@
 		<dfdl:defineVariable defaultValue=":" name="CompositeSep" type="xsd:string"/> 
 		<dfdl:defineVariable defaultValue="?" name="EscapeChar" type="xsd:string"/> 
 		<dfdl:defineVariable defaultValue="*" name="RepeatSep" type="xsd:string"/> 
-		<dfdl:defineVariable defaultValue="." name="DecimalSep" type="xsd:string"/> 
+    <dfdl:defineVariable defaultValue="." name="DecimalSep" type="xsd:string"/> 
+    <dfdl:defineVariable defaultValue="," name="GroupingSep" type="xsd:string"/> 
     	
       <dfdl:defineFormat name="EDIFormat">
-        <dfdl:format encoding="{$dfdl:encoding}"
+        <dfdl:format encoding="iso-8859-1"
                      ignoreCase="yes"
-                     byteOrder="{$dfdl:byteOrder}"
+                     byteOrder="bigEndian"
                      representation="text"
                      textStringJustification="left"
                      truncateSpecifiedLengthString="no"
@@ -83,8 +85,9 @@
                      textBooleanPadCharacter="%SP;"
                      textStandardBase="10"
                      textStandardDecimalSeparator="{$ibmEdiFmt:DecimalSep}"
-                     textStandardExponentCharacter="E"
-                     alignment="1" alignmentUnits="bytes" leadingSkip="0" trailingSkip="0" fillByte="0"
+                     textStandardGroupingSeparator="{$ibmEdiFmt:GroupingSep}"
+                     textStandardExponentRep="E"
+                     alignment="1" alignmentUnits="bytes" leadingSkip="0" trailingSkip="0" fillByte="%#r00;"
                      initiatedContent="no"
                      textNumberRep="standard"
                      textStandardZeroRep=""
@@ -114,7 +117,8 @@
                      textBidi="no"
                      nilKind="literalValue"
                      useNilForDefault="no"
-                     floating="no">
+                     floating="no"
+                     binaryNumberRep="binary">
         </dfdl:format>
       </dfdl:defineFormat>
 	  

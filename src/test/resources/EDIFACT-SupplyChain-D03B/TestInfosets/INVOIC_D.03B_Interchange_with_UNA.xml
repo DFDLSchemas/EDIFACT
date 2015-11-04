@@ -106,6 +106,9 @@
          <SegGrp-2 xmlns="">
             <NAD>
                <E3035 xsi:type="xs:string">DP</E3035>
+               <C058> <!-- added this element. Produced by IBM DFDL now. -->
+                 <E3124 xsi:nil="true"/>
+               </C058>
                <C080>
                   <E3036 xsi:type="xs:string">MyCompany</E3036>
                </C080>

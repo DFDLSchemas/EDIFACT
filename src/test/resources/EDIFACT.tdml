@@ -11,9 +11,9 @@
     <daf:tunables>
       <daf:suppressSchemaDefinitionWarnings>
         encodingErrorPolicyError
-        emptyElementPolicyError
+        emptyElementParsePolicyError
       </daf:suppressSchemaDefinitionWarnings>    
-      <daf:emptyElementPolicy>emptySuppressed</daf:emptyElementPolicy>
+      <daf:defaultEmptyElementParsePolicy>treatAsMissing</daf:defaultEmptyElementParsePolicy>
     </daf:tunables>
   </tdml:defineConfig>
 

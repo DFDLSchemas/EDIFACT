@@ -87,111 +87,72 @@
         <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UNH" name="UNH" type="srv:UNH-MessageHeader"/>
         <xsd:choice>
           <xsd:sequence>
-            <xsd:choice>
-              <xsd:element ref="srv:AUTACK">
+            <xsd:choice dfdl:choiceDispatchKey="{ ./UNH/S009/E0065 }">
+              <xsd:element ref="srv:AUTACK" dfdl:choiceBranchKey="AUTACK">
                 <xsd:annotation>
                   <xsd:appinfo source="http://www.ogf.org/dfdl/">
-                    <dfdl:discriminator>
-                      {fn:contains(../UNH/S009/E0065,'AUTACK')}
-                    </dfdl:discriminator>
                   </xsd:appinfo>
                 </xsd:annotation>
               </xsd:element>
-              <xsd:element ref="srv:CONTRL">
+              <xsd:element ref="srv:CONTRL" dfdl:choiceBranchKey="CONTRL">
                 <xsd:annotation>
                   <xsd:appinfo source="http://www.ogf.org/dfdl/">
-                    <dfdl:discriminator>
-                      {fn:contains(../UNH/S009/E0065,'CONTRL')}
-                    </dfdl:discriminator>
                   </xsd:appinfo>
                 </xsd:annotation>
               </xsd:element>
-              <xsd:element ref="D03B:DESADV">
+              <xsd:element ref="D03B:DESADV" dfdl:choiceBranchKey="DESADV">
                 <xsd:annotation>
                   <xsd:appinfo source="http://www.ogf.org/dfdl/">
-                    <dfdl:discriminator>
-                      {fn:contains(../UNH/S009/E0065,'DESADV')}
-                    </dfdl:discriminator>
                   </xsd:appinfo>
                 </xsd:annotation>
               </xsd:element>
-              <xsd:element ref="D03B:INVOIC">
+              <xsd:element ref="D03B:INVOIC" dfdl:choiceBranchKey="INVOIC">
                 <xsd:annotation>
                   <xsd:appinfo source="http://www.ogf.org/dfdl/">
-                    <dfdl:discriminator>
-                      {fn:contains(../UNH/S009/E0065,'INVOIC')}
-                    </dfdl:discriminator>
                   </xsd:appinfo>
                 </xsd:annotation>
               </xsd:element>
-              <xsd:element ref="srv:KEYMAN">
+              <xsd:element ref="srv:KEYMAN" dfdl:choiceBranchKey="KEYMAN">
                 <xsd:annotation>
                   <xsd:appinfo source="http://www.ogf.org/dfdl/">
-                    <dfdl:discriminator>
-                      {fn:contains(../UNH/S009/E0065,'KEYMAN')}
-                    </dfdl:discriminator>
                   </xsd:appinfo>
                 </xsd:annotation>
               </xsd:element>
-              <xsd:element ref="D03B:ORDCHG">
+              <xsd:element ref="D03B:ORDCHG" dfdl:choiceBranchKey="ORDCHG">
                 <xsd:annotation>
                   <xsd:appinfo source="http://www.ogf.org/dfdl/">
-                    <dfdl:discriminator>
-                      {fn:contains(../UNH/S009/E0065,'ORDCHG')}
-                    </dfdl:discriminator>
                   </xsd:appinfo>
                 </xsd:annotation>
               </xsd:element>
-              <xsd:element ref="D03B:ORDERS">
+              <xsd:element ref="D03B:ORDERS" dfdl:choiceBranchKey="ORDERS">
                 <xsd:annotation>
                   <xsd:appinfo source="http://www.ogf.org/dfdl/">
-                    <dfdl:discriminator>
-                      {fn:contains(../UNH/S009/E0065,'ORDERS')}
-                    </dfdl:discriminator>
                   </xsd:appinfo>
                 </xsd:annotation>
               </xsd:element>
-              <xsd:element ref="D03B:ORDRSP">
+              <xsd:element ref="D03B:ORDRSP" dfdl:choiceBranchKey="ORDSP">
                 <xsd:annotation>
                   <xsd:appinfo source="http://www.ogf.org/dfdl/">
-                    <dfdl:discriminator>
-                      {fn:contains(../UNH/S009/E0065,'ORDRSP')}
-                    </dfdl:discriminator>
                   </xsd:appinfo>
                 </xsd:annotation>
               </xsd:element>
-              <xsd:element ref="D03B:RECADV">
+              <xsd:element ref="D03B:RECADV" dfdl:choiceBranchKey="RECADV">
                 <xsd:annotation>
                   <xsd:appinfo source="http://www.ogf.org/dfdl/">
-                    <dfdl:discriminator>
-                      {fn:contains(../UNH/S009/E0065,'RECADV')}
-                    </dfdl:discriminator>
                   </xsd:appinfo>
                 </xsd:annotation>
               </xsd:element>
-              <xsd:element ref="D03B:REMADV">
+              <xsd:element ref="D03B:REMADV" dfdl:choiceBranchKey="REMADV">
                 <xsd:annotation>
                   <xsd:appinfo source="http://www.ogf.org/dfdl/">
-                    <dfdl:discriminator>
-                      {fn:contains(../UNH/S009/E0065,'REMADV')}
-                    </dfdl:discriminator>
                   </xsd:appinfo>
                 </xsd:annotation>
               </xsd:element>
-      
-              <xsd:sequence>
-                <xsd:annotation>
-                  <xsd:appinfo source="http://www.ogf.org/dfdl/">
-        	          <dfdl:assert message="Unsupported message" test="{fn:false()}"/>
-         	        </xsd:appinfo>
-                </xsd:annotation>
-              </xsd:sequence>
             </xsd:choice>
             <xsd:element dfdl:ref="ibmEdiFmt:EDISegmentFormat" dfdl:initiator="UNT" name="UNT" type="srv:UNT-MessageTrailer"/>
           </xsd:sequence> 
           <xsd:sequence>
-            <xsd:element ref="D03B:BadMessage">
-            </xsd:element>
+            <xsd:element ref="D03B:BadMessage"/>
             <xsd:element dfdl:initiator="UNT" dfdl:ref="ibmEdiFmt:EDISegmentFormat" name="UNT" type="srv:UNT-MessageTrailer"/>
           </xsd:sequence> 
         </xsd:choice>

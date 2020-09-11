@@ -34,10 +34,10 @@ To serialize with new lines, edit EDIFACT-Service-Segments-4.1.xsd in the 'EDIFA
 
 The DFDL schemas are structured so that if an error is encountered while parsing an interchange, the parser will create a BadMessage element in the DFDL infoset, and skip to the next message. It is therefore important that the infoset is checked after a successful parse, to see if any BadMessage elements exist. 
 
-The DFDL schemas are compatible with IBM DFDL 1.0 and 1.1 releases, as shipped in IBM WebSphere Message Broker 8.0.0.2 onwards and IBM Integration Bus 9.0.0.1 onwards, respectively.
+The DFDL schemas are compatible with IBM DFDL 1.1 releases, as shipped in IBM Integration Bus 9.0.0.1 onwards and IBM App Connect Enterprise 11.0.0.0 onwards.
 
 ----------------
-IBM WebSphere Message Broker and IBM Integration Bus
+IBM App Connect Enterprise and IBM Integration Bus
 
 It is recommended that each folder becomes a library project with the same name as the folder. This is because the schemas in the  'EDIFACT-&lt;Industry&gt;-&lt;Release&gt;' folder reference the schemas in the 'EDIFACT-Common' folder using a relative  schemaLocation path (example below), and so that the 'EDIFACT-Common' schemas can be shared by multiple libraries.
 

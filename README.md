@@ -3,7 +3,13 @@ United Nations Rules for Electronic Data Interchange for Administration, Commerc
 
 This GitHub repository holds DFDL schemas that model UN/EDIFACT interchanges. 
 
-To download the repository go to http://dfdlschemas.github.com/EDIFACT/.
+--------------
+### Branches
+
+**master** - The original DFDL schema created by IBM for use with IBM DFDL is on the master branch.
+
+**daffodil-dev** - A version for use with Apache Daffodil is on the daffodil-dev branch. 
+This is the same schema just reorganized into a standard schema project layout and setup for regression testing via 'sbt test'. 
 
 ----------------
 UN/EDIFACT data streams have a hierarchical structure where the top level is referred to as an interchange, 

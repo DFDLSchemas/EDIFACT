@@ -1,7 +1,7 @@
 United Nations Rules for Electronic Data Interchange for Administration, Commerce and Transport (UN/EDIFACT)
 ==========
 
-This GitHub repository holds DFDL schemas that model UN/EDIFACT interchanges. 
+This GitHub repository holds DFDL schemas that model UN/EDIFACT interchanges (ISO 9735). 
 
 To download the repository go to http://dfdlschemas.github.com/EDIFACT/.
 

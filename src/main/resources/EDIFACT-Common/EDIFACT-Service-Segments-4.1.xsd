@@ -446,17 +446,21 @@
   </xsd:complexType>
   
   <xsd:complexType name="UIH-InteractiveMessageHeader">
-    <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
-      <xsd:annotation><xsd:appinfo source="http://www.ogf.org/dfdl/">
-        <dfdl:discriminator test="{fn:true()}"/>
-      </xsd:appinfo></xsd:annotation>
-      <xsd:element  name="S306" type="srv:S306-InteractiveMessageIdentifier"/>
-      <xsd:element  minOccurs="0" name="E0340" type="srv:E0340-InteractiveMessageReferenceNumber"/>
-      <xsd:element  minOccurs="0" name="S302" type="srv:S302-DialogueReference"/>
-      <xsd:element  minOccurs="0" name="S301" type="srv:S301-StatusOfTransferInteractive"/>
-      <xsd:element  minOccurs="0" name="S300" type="srv:S300-DateAndOrTimeOfInitiation"/>
-      <xsd:element  minOccurs="0" name="E0035" type="srv:E0035-TestIndicator"/>
-  
+    <xsd:sequence>
+      <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+        <xsd:element  name="S306" type="srv:S306-InteractiveMessageIdentifier"/>
+        <xsd:element  minOccurs="0" name="E0340" type="srv:E0340-InteractiveMessageReferenceNumber"/>
+        <xsd:element  minOccurs="0" name="S302" type="srv:S302-DialogueReference"/>
+        <xsd:element  minOccurs="0" name="S301" type="srv:S301-StatusOfTransferInteractive"/>
+        <xsd:element  minOccurs="0" name="S300" type="srv:S300-DateAndOrTimeOfInitiation"/>
+        <xsd:element  minOccurs="0" name="E0035" type="srv:E0035-TestIndicator"/>
+      </xsd:sequence>
+      <xsd:sequence>
+        <xsd:annotation><xsd:appinfo source="http://www.ogf.org/dfdl/">
+          <dfdl:discriminator test="{fn:true()}"/>
+        </xsd:appinfo></xsd:annotation>
+      </xsd:sequence>
+
     </xsd:sequence>
   </xsd:complexType>
   
@@ -520,35 +524,43 @@
   </xsd:complexType>
   
   <xsd:complexType name="UNG-GroupHeader">
-    <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
-      <xsd:annotation><xsd:appinfo source="http://www.ogf.org/dfdl/">
-        <dfdl:discriminator test="{fn:true()}"/>
-      </xsd:appinfo></xsd:annotation>
-      <xsd:element  minOccurs="0" name="E0038" type="srv:E0038-MessageGroupIdentification"/>
-      <xsd:element  minOccurs="0" name="S006" type="srv:S006-ApplicationSenderIdentification"/>
-      <xsd:element  minOccurs="0" name="S007" type="srv:S007-ApplicationRecipientIdentification"/>
-      <xsd:element  minOccurs="0" name="S004" type="srv:S004-DateAndTimeOfPreparation"/>
-      <xsd:element  name="E0048" type="srv:E0048-GroupReferenceNumber"/>
-      <xsd:element  minOccurs="0" name="E0051" type="srv:E0051-ControllingAgencyCoded"/>
-      <xsd:element  minOccurs="0" name="S008" type="srv:S008-MessageVersion"/>
-      <xsd:element  minOccurs="0" name="E0058" type="srv:E0058-ApplicationPassword"/>
-  
+    <xsd:sequence>
+      <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+        <xsd:element  minOccurs="0" name="E0038" type="srv:E0038-MessageGroupIdentification"/>
+        <xsd:element  minOccurs="0" name="S006" type="srv:S006-ApplicationSenderIdentification"/>
+        <xsd:element  minOccurs="0" name="S007" type="srv:S007-ApplicationRecipientIdentification"/>
+        <xsd:element  minOccurs="0" name="S004" type="srv:S004-DateAndTimeOfPreparation"/>
+        <xsd:element  name="E0048" type="srv:E0048-GroupReferenceNumber"/>
+        <xsd:element  minOccurs="0" name="E0051" type="srv:E0051-ControllingAgencyCoded"/>
+        <xsd:element  minOccurs="0" name="S008" type="srv:S008-MessageVersion"/>
+        <xsd:element  minOccurs="0" name="E0058" type="srv:E0058-ApplicationPassword"/>
+      </xsd:sequence>
+      <xsd:sequence>
+        <xsd:annotation><xsd:appinfo source="http://www.ogf.org/dfdl/">
+          <dfdl:discriminator test="{fn:true()}"/>
+        </xsd:appinfo></xsd:annotation>
+      </xsd:sequence>
+
     </xsd:sequence>
   </xsd:complexType>
   
   <xsd:complexType name="UNH-MessageHeader">
-    <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
-      <xsd:annotation><xsd:appinfo source="http://www.ogf.org/dfdl/">
-        <dfdl:discriminator test="{fn:true()}"/>
-      </xsd:appinfo></xsd:annotation>
-      <xsd:element  name="E0062" type="srv:E0062-MessageReferenceNumber"/>
-      <xsd:element  name="S009" type="srv:S009-MessageIdentifier"/>
-      <xsd:element  minOccurs="0" name="E0068" type="srv:E0068-CommonAccessReference"/>
-      <xsd:element  minOccurs="0" name="S010" type="srv:S010-StatusOfTheTransfer"/>
-      <xsd:element  minOccurs="0" name="S016" type="srv:S016-MessageSubsetIdentification"/>
-      <xsd:element  minOccurs="0" name="S017" type="srv:S017-MessageImplementationGuidelineIdentification"/>
-      <xsd:element  minOccurs="0" name="S018" type="srv:S018-ScenarioIdentification"/>
-  
+    <xsd:sequence>
+      <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+        <xsd:element  name="E0062" type="srv:E0062-MessageReferenceNumber"/>
+        <xsd:element  name="S009" type="srv:S009-MessageIdentifier"/>
+        <xsd:element  minOccurs="0" name="E0068" type="srv:E0068-CommonAccessReference"/>
+        <xsd:element  minOccurs="0" name="S010" type="srv:S010-StatusOfTheTransfer"/>
+        <xsd:element  minOccurs="0" name="S016" type="srv:S016-MessageSubsetIdentification"/>
+        <xsd:element  minOccurs="0" name="S017" type="srv:S017-MessageImplementationGuidelineIdentification"/>
+        <xsd:element  minOccurs="0" name="S018" type="srv:S018-ScenarioIdentification"/>
+      </xsd:sequence>
+      <xsd:sequence>
+        <xsd:annotation><xsd:appinfo source="http://www.ogf.org/dfdl/">
+          <dfdl:discriminator test="{fn:true()}"/>
+        </xsd:appinfo></xsd:annotation>
+      </xsd:sequence>
+
     </xsd:sequence>
   </xsd:complexType>
   
